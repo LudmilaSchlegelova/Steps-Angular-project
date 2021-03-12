@@ -1,0 +1,60 @@
+<ul class="d-flex justify-content-between">
+  <li
+    class="step"
+    [ngClass]="{ active: actualStep === 1 }"
+    (click)="changeStep(1)"
+  >
+    <span class="step-number">1</span>
+    <span class="step-title">First Step</span>
+  </li>
+  <li class="line"></li>
+  <li
+    class="step"
+    [ngClass]="{ active: actualStep === 2 }"
+    (click)="changeStep(2)"
+  >
+    <span class="step-number">2</span>
+    <span class="step-title">Second Step</span>
+  </li>
+  <li class="line"></li>
+  <li
+    class="step"
+    [ngClass]="{ active: actualStep === 3 }"
+    (click)="changeStep(3)"
+  >
+    <span class="step-number">3</span>
+    <span class="step-title">Third Step</span>
+  </li>
+  <li class="line"></li>
+  <li
+    class="step"
+    [ngClass]="{ active: actualStep === 4 }"
+    (click)="changeStep(4)"
+  >
+    <span class="step-number">4</span>
+    <span class="step-title">Fourth Step</span>
+  </li>
+</ul>
+<!--stepper content -->
+<ng-container *ngIf="actualStep === 1"> this is step 1 </ng-container>
+<ng-container *ngIf="actualStep === 2"> this is step 2 </ng-container>
+<ng-container *ngIf="actualStep === 3"> this is step 3 </ng-container>
+<ng-container *ngIf="actualStep === 4"> this is step 4 </ng-container>
+<div class="flex justify-content-between">
+  <button
+    *ngIf="actualStep !== 1"
+    (click)="changeStep(actualStep - 1)"
+    class="btn btn-secondary"
+  >
+    Previous
+  </button>
+  <button
+    id="magenta"
+    *ngIf="actualStep !== 4"
+    (click)="changeStep(actualStep + 1)"
+    class="btn btn-primary"
+  >
+    Next
+  </button>
+  <button *ngIf="actualStep === 4" class="btn btn-primary">Finish</button>
+</div>
